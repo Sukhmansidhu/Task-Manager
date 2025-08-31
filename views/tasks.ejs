@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/tasks.css">
+</head>
+<body>
+<div class="container">
+  <% if (message) { %>
+    <div class="flash-message show"> <%= message %></div>
+  <% } %>
+  <div class="header">
+    <h2>Task Dashboard</h2>
+    <a href="/auth/logout">Logout</a>
+  </div>
+
+  <div class="add-task">
+    <form action="/tasks/add" method="POST">
+      <input type="text" name="title" placeholder="Task Title" required />
+      <input type="text" name="description" placeholder="Description" />
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="task-list">
+    <% tasks.forEach(task => { %>
+      <div class="task-card <%= task.status === 'completed' ? 'completed' : '' %>">
+        <div class="task-info">
+          <h4><%= task.title %></h4>
+          <large>Status: <%= task.status %></large><br>
+          <medium><%= task.description %></medium>
+        </div>
+        <div class="task-actions">
+          <form action="/tasks/toggle/<%= task._id %>" method="POST" style="display:inline;">
+            <button type="submit">Toggle</button>
+          </form>
+          <form action="/tasks/delete/<%= task._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+          <form action="/tasks/edit/<%= task._id %>" method="POST" style="display:inline;">
+            <input type="text" name="title" value="<%= task.title %>" required />
+            <input type="text" name="description" value="<%= task.description %>" />
+            <button type="submit">Update</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+</body>
+</html>

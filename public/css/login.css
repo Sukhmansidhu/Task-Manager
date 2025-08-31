@@ -1,0 +1,183 @@
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(135deg, #2c3e50, #4a6c8a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #ecf0f1;
+  animation: backgroundShift 15s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+@keyframes backgroundShift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: absolute; 
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #04dee9;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #74b9ff; 
+  transform: scale(1.05);
+}
+
+
+.container {
+  max-width: 400px;
+  width: 90%;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 120px;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 15px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px; 
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  border-color: #74b9ff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(116, 185, 255, 0.5); 
+}
+
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  background: #3498db; 
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background: #2980b9; 
+  transform: translateY(-3px);
+  box-shadow: 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+p {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+a {
+  color: #74b9ff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #74b9ff;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+.error-message {
+  background: #ff6b6b;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
