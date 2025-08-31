@@ -43,6 +43,10 @@ app.get("/", (req, res) => {
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ Connected to MongoDB");
-    app.listen(8080, () => console.log("🚀 Server running on http://localhost:8080"));
+    if (process.env.NODE_ENV !== "production") {
+      app.listen(8080, () => console.log("🚀 Server running on http://localhost:8080"));
+    }
   })
   .catch(err => console.error("MongoDB connection error:", err));
+
+module.exports = app;
