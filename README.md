@@ -71,7 +71,7 @@ It allows users to sign up, log in, and manage tasks with status toggling betwee
 ## 🎥 Demo Video  
 
 📹 A 2-minute demo showing signup, login, add/edit/delete tasks, and toggle status.  
-(*Link will be added after recording*)  
+📹 [Watch Demo Video](https://drive.google.com/file/d/1nmc1DLeWafnJvy1qupoYAZXBGDlJgjMu/view?usp=sharing)
 
 ---
 
