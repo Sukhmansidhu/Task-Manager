@@ -23,7 +23,7 @@
 
   <div class="task-list">
     <% tasks.forEach(task => { %>
-      <div class="task-card <%= task.status === 'completed' ? 'completed' : '' %>">
+      <div class="task-card <%= task.status === 'Completed' ? 'Completed' : '' %>">
         <div class="task-info">
           <h4><%= task.title %></h4>
           <large>Status: <%= task.status %></large><br>

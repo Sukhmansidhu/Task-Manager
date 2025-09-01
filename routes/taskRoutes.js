@@ -45,7 +45,8 @@ router.post("/toggle/:id", async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, userId: req.userId });
     if (task) {
-      task.status = task.status === "Pending" ? "Completed" : "Pending";
+      const currentStatus = task.status.toLowerCase();
+      task.status = currentStatus === "pending" ? "Completed" : "Pending";
       await task.save();
     }
     req.flash("message", "Task status updated!");
